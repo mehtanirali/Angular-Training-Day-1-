@@ -1,0 +1,11 @@
+<p>second-component works!</p>
+<button type="button" (click)="displayDetails()">button</button>
+<p >{{ message }}</p>
+<div>
+    <label>Input field from the child component</label>
+    <br />
+    <input type="text" id="childInput" #userName />
+    <button type="submit" id="childButton" (click)="buttonClick(userName.value)">
+       Click
+    </button>
+ </div>

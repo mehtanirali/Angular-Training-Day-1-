@@ -1,0 +1,37 @@
+<!-- <app-second-component [message]="message"></app-second-component> -->
+<app-second-component ></app-second-component>
+
+<div>
+    <h1>Parent Component</h1>
+    <app-second-component (childEvent)="addName($event)"></app-second-component>
+    <p>Displaying names entered in child component input field</p>
+    <label>Names:</label>
+    <br />
+    <p *ngFor="let name of names">
+    <span>{{ name }}</span>
+    </p>
+</div>
+
+<label for="name">Name: </label>
+<input id="name" type="text" [formControl]="name">
+<p>Value: {{ name.value }}</p>
+<button type="button" (click)="updateName()">Update Name</button>
+
+<button type="button" (click)="apiCall()">apiCall</button>
+
+<form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+
+    <label for="first-name">First Name: </label>
+    <input id="first-name" type="text" formControlName="firstName">
+  
+    <label for="last-name">Last Name: </label>
+    <input id="last-name" type="text" formControlName="lastName">
+    <button type="submit" [disabled]="!profileForm.valid">Submit</button>
+</form>
+
+<p>Complete the form to enable button.</p>
+
+
+
+<button type="button" (click)="updateProfile()">Update Profile Patch value</button>
+<button type="button" (click)="updateProfilesetValue()">Update Profile set values</button>
